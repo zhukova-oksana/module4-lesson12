@@ -24,7 +24,8 @@
       // console.log('answerPlayer', answerPlayer);
 
       if ((answerPlayer === null)) {
-        return alert(`Конец игры!\nСЧЕТ Вы ${result.player}: Компьютер ${result.computer}`);
+        return alert(`Конец игры!\n
+        СЧЕТ Вы ${result.player}: Компьютер ${result.computer}`);
       }
 
       const findMatch = (arr, x) => {
@@ -34,7 +35,7 @@
           }
         }
         return false;
-      }
+      };
 
       const choicePlayer = findMatch(FIGURES_RUS, answerPlayer.toLowerCase());
       let sequel = true;
@@ -44,20 +45,27 @@
           alert(`Компьютер: ${hiddenWord} \n Вы: ${choicePlayer}\n Ничья!`);
           sequel = confirm(`Продолжим?`);
           break;
-        case ((choicePlayer === 'камень') && (hiddenWord === 'бумага')) || ((choicePlayer === 'бумага') && (hiddenWord === 'ножницы')) || ((choicePlayer === 'ножницы') && (hiddenWord === 'камень')):
-          alert(`Компьютер: ${hiddenWord} \n Вы: ${choicePlayer}\n Компьютер победил!`);
-          result.computer +=1;
+        case ((choicePlayer === 'камень') && (hiddenWord === 'бумага')) ||
+        ((choicePlayer === 'бумага') && (hiddenWord === 'ножницы')) ||
+        ((choicePlayer === 'ножницы') && (hiddenWord === 'камень')):
+          alert(`Компьютер: ${hiddenWord} \n
+          Вы: ${choicePlayer}\n Компьютер победил!`);
+          result.computer += 1;
           sequel = confirm(`Продолжим?`);
           break;
-        case ((choicePlayer === 'камень') && (hiddenWord === 'ножницы')) || ((choicePlayer === 'ножницы') && (hiddenWord === 'бумага')) || ((choicePlayer === 'камень') && (hiddenWord === 'бумага')):
-          alert(`Компьютер: ${hiddenWord} \n Вы: ${choicePlayer}\n Вы победили!`);
-          result.player +=1;
+        case ((choicePlayer === 'камень') && (hiddenWord === 'ножницы')) ||
+        ((choicePlayer === 'ножницы') && (hiddenWord === 'бумага')) ||
+        ((choicePlayer === 'камень') && (hiddenWord === 'бумага')):
+          alert(`Компьютер: ${hiddenWord} \n
+          Вы: ${choicePlayer}\n Вы победили!`);
+          result.player += 1;
           sequel = confirm(`Продолжим?`);
           break;
       }
 
       if (sequel === false) {
-        return alert(`Конец игры!\nСЧЕТ \nВы ${result.player}: Компьютер ${result.computer}`);
+        return alert(`Конец игры!\n
+        СЧЕТ \nВы ${result.player}: Компьютер ${result.computer}`);
       }
 
       return start();
@@ -65,5 +73,4 @@
   };
 
   window.RPS = game;
-
 })();

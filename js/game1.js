@@ -17,7 +17,7 @@
 
     return function start() {
       const indexWord = getRandomIntInclusive(0, 2);
-      // console.log('indexWord', indexWord);
+      console.log('indexWord', indexWord);
 
       let answerPlayer = prompt(`${FIGURES_RUS.join(',')}?`);
       // console.log('answerPlayer', answerPlayer);
@@ -27,14 +27,19 @@
         СЧЕТ Вы ${result.player}: Компьютер ${result.computer}`);
       }
 
-      const indexFind = FIGURES_RUS.indexOf(answerPlayer.toLowerCase(), 0);
-      // console.log('find', indexFind);
+      let indexFind = FIGURES_RUS.indexOf(answerPlayer.toLowerCase(), 0);
       let sequel = true;
 
-      if (indexFind === -1) {
-        answerPlayer = prompt(`${FIGURES_RUS.join(',')}?`);
-        return answerPlayer;
+      const correctAnswer = (index) => {
+        if (index === -1) {
+          let answer = prompt(`${FIGURES_RUS.join(',')}?`);
+          index = FIGURES_RUS.indexOf(answer.toLowerCase(), 0);
+          correctAnswer(index);
+        } else {
+          return indexFind = index;
+        }
       }
+      correctAnswer(indexFind);
 
       switch (true) {
         case indexWord === indexFind:

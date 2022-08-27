@@ -19,7 +19,7 @@
       const indexWord = getRandomIntInclusive(0, 2);
       console.log('indexWord', indexWord);
 
-      let answerPlayer = prompt(`${FIGURES_RUS.join(',')}?`);
+      const answerPlayer = prompt(`${FIGURES_RUS.join(',')}?`);
       // console.log('answerPlayer', answerPlayer);
 
       if ((answerPlayer === null)) {
@@ -32,13 +32,13 @@
 
       const correctAnswer = (index) => {
         if (index === -1) {
-          let answer = prompt(`${FIGURES_RUS.join(',')}?`);
+          const answer = prompt(`${FIGURES_RUS.join(',')}?`);
           index = FIGURES_RUS.indexOf(answer.toLowerCase(), 0);
           correctAnswer(index);
         } else {
           return indexFind = index;
         }
-      }
+      };
       correctAnswer(indexFind);
 
       switch (true) {
